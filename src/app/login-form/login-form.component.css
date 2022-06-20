@@ -1,0 +1,48 @@
+:host {
+	flex-grow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div.input {
+	position: relative;
+}
+
+div.input label {
+	position: absolute;
+	top: 0;
+	transform: translateY(-50%);
+	left: 11px;
+	background: white;
+	padding: 5px 2px;
+}
+
+div.input input {
+	padding: 10px 25px;
+	font-size: 20px;
+	outline: 0;
+}
+
+div.input {
+	margin-top: 21px;
+}
+
+div.button button{
+	margin-left: 75px;
+	width: 115px;
+	font-size: 22px;
+}
+
+
+div.newPass{
+    margin-top: 21px;
+    margin-left: 70px;
+}
+
+.error-msg {
+	margin-top: 23px;
+	font-weight:bolder;
+	font-size: 20px;
+    color: rgb(202, 7, 7);
+  }

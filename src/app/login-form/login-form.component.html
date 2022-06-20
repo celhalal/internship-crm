@@ -1,0 +1,30 @@
+<form>
+	<div class="input">
+		<label>Username</label>
+		<input
+			#addUsername
+			type="email"
+			(input)="usernameInput(addUsername.value)"
+			[value]="username"
+			ng-model="username" >
+	</div>
+	<div class="input">
+		<label>Password</label>
+		<input
+			#addPassword
+			type="password"
+			(input)="passwordInput(addPassword.value)"
+			[value]="password"
+			ng-model="password">
+	</div>
+	<form name="myForm">
+		<div class="input button">
+			<button id="button" (click)="submit()">Login</button>
+		</div>
+		<p *ngIf="!username" class="error-msg"> {{ errorMessage }} </p>
+		<p *ngIf="!password" class="error-msg"> {{ errorMessage }} </p>
+	</form>
+	<div class="newPass">
+        <a id="forgot-password" href>Forgot Password?</a>
+    </div>
+</form>
