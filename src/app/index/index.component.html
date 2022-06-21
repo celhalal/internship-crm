@@ -1,1 +1,45 @@
-<p>index works!</p>
+<title> Customer Details </title>
+<header> <h2>Customer List</h2> </header>
+
+<!-- to use local api uncomment: -->
+<section class="main">
+  <div class="twrapper">
+    <table cellpadding="pixels" cellspacing="pixels">
+      <thead>
+        <tr>
+          <th> Company Name </th>
+          <th> Phone </th>
+          <th> Location </th>
+          <th> Contact Name </th>
+          <th> Website </th>
+          <!-- <th> Customer Since </th> -->
+          <th> Edit </th>
+          <th> Detail</th>
+        </tr>
+      </thead>
+
+      <!--  <tbody class="body" *ngFor="let index of indices">
+          <tr class="data">
+            <td style="padding-right: 25px;"> {{ index.companyName }} </td>
+            <td style="padding-right: 25px;"> {{ index.phone }} </td>
+            <td style="padding-right: 20px;"> {{ index.location }} </td>
+            <td style="padding-right: 20px;"> {{ index.contactName }} </td>
+            <td style="padding-right: 20px;"> {{ index.dateEnrolled }} </td>
+          </tr>
+        </tbody> -->
+
+  <!-- online fake api -->
+      <div *ngIf="!data.length"> {{getDataFromAPI()}} </div>
+        <tbody class="body" *ngFor="let d of data">
+          <tr class="data">
+            <td style="padding-right: 25px;"> {{ d.company.name }} </td>
+            <td style="padding-right: 20px;"> {{ d.phone }} </td>
+            <td style="padding-right: 25px;"> {{ d.address.street }} {{d.address.suite}} {{d.address.city}}</td>
+            <td style="padding-right: 20px;"> {{ d.name }} </td>
+            <td style="padding-right: 20px;"> {{ d.website }} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+<p><a routerLink="">Sign out</a></p>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Index } from '../Index'
+import { INDEX } from '../mock-index';
+import { JSONPlaceholderService } from '../../app/services/jsonplaceholder.service'
 
 @Component({
   selector: 'app-index',
@@ -6,10 +9,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
+  indices: Index[] = INDEX;
+  data: Array<any>;
 
-  constructor() { }
+  constructor(private JSONPlaceholder:JSONPlaceholderService) { 
+    this.data = new Array<any>();
+  }
 
   ngOnInit(): void {
   }
 
+  getIndex(): Index[]{
+    return INDEX;
+  }
+
+  getDataFromAPI(){
+    this.JSONPlaceholder.getData().subscribe((data)=>{
+      this.data = data;
+    })
+  }
 }
