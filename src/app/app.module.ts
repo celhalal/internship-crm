@@ -11,6 +11,8 @@ import { DetailComponent } from './detail/detail.component';
 import { IndexComponent } from './index/index.component';
 import { ErrorComponent } from './error/error.component';
 import { RouterModule, Routes } from '@angular/router';
+import { Login } from './Login';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   // route to error page
@@ -19,10 +21,19 @@ const appRoutes: Routes = [
     path: '',
     component: LoginFormComponent
   },
-  // {
-  //   path: 'error',
-  //   component: ErrorComponent
-  // }
+  // http://localhost:4200/error to access
+  {
+    path: 'error',
+    component: ErrorComponent
+  },
+  //http://localhost:4200/detail to access
+  {
+    path: 'detail',
+    component: DetailComponent
+  }, {
+    path: 'index',
+    component: IndexComponent
+  }
 ]
 
 @NgModule({
@@ -39,7 +50,8 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    HttpClientModule, 
+    RouterModule.forRoot(appRoutes, {enableTracing: true})
   ],
   providers: [],
   bootstrap: [AppComponent]
