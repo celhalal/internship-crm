@@ -13,8 +13,7 @@
           <th> Contact Name </th>
           <th> Website </th>
           <!-- <th> Customer Since </th> -->
-          <th> Edit </th>
-          <th> Detail</th>
+          <th style="padding-left: 0px;"> Details</th>
         </tr>
       </thead>
 
@@ -30,15 +29,18 @@
 
   <!-- online fake api -->
       <div *ngIf="!data.length"> {{getDataFromAPI()}} </div>
-        <tbody class="body" *ngFor="let d of data">
+        <tbody class="body" *ngFor="let d of data; let i = index">
           <tr class="data">
             <td style="padding-right: 25px;"> {{ d.company.name }} </td>
             <td style="padding-right: 20px;"> {{ d.phone }} </td>
             <td style="padding-right: 25px;"> {{ d.address.street }} {{d.address.suite}} {{d.address.city}}</td>
             <td style="padding-right: 20px;"> {{ d.name }} </td>
             <td style="padding-right: 20px;"> {{ d.website }} </td>
+            <td><button type="moreDetails"> <img src="../assets/info.png" alt="More Details" height ="40" width="50"/></button></td>
           </tr>
         </tbody>
+        <br> <br>
+        <div> Total records: {{data.length}}</div>
       </table>
     </div>
   </section>
