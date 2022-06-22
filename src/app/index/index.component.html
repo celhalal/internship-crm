@@ -3,8 +3,8 @@
 
 <!-- to use local api uncomment: -->
 <section>
-  <div class="twrapper">
-    <table cellpadding="pixels" cellspacing="pixels">
+  <div>
+    <table>
       <thead>
         <tr class="h5">
           <th></th>
@@ -32,7 +32,7 @@
   <!-- online fake api -->
       <div *ngIf="!data.length"> {{getDataFromAPI()}} </div>
         <tbody class="body" *ngFor="let d of data; let i = index">
-          <tr>
+          <tr>   
             <ol class="fw-bold"> {{ i+1 }} </ol>
             <td class="ps-2"> {{ d.company.name }} </td>
             <td class="ps-2"> {{ d.phone }} </td>
@@ -40,27 +40,44 @@
             <td class="ps-2"> {{ d.name }} </td>
             <td class="ps-2"> {{ d.website }} </td>
             <td class="ps-2">
-              <button id="{{i}}" (onclick)="showDetails(i)" >
+              <button id="{{i}}" [(ngModel)]="data[i]" ngDefaultControl (click)="showDetails(data[i])">
                 <img src="../assets/info.png" alt="More Details" height ="35" width="45"/>
               </button>
             </td>
           </tr>
         </tbody>
-        <br> <br>
       </table>
     </div>
   </section>
+  <div class="h5 m-3"> Total records: {{data.length}}</div> <br>
 
-  <!-- if user clicked i button, set to true, display info -->
-  <!-- when user clicks hide, set to false & hide info -->
-  <div *ngFor="let d of data; let i = index">
-    <!-- <div *ngIf = "showDetails"> {{d.name}} </div> -->
+    <!-- if user clicked i button, set to true, display info -->
+    <!-- when user clicks hide, set to false & hide info -->
+    <!-- {{ data[i].name }} -->
 
-    <td class="ps-2"> hi {{ data[i].name }} </td>
+    <div *ngIf="data.length">
+      <div *ngFor="let d of data;  let i = index">
+        <div *ngIf="data[i].show">
+            <tr class="h6" id="details">
+              <div class="wrapper">
+                <th class="h5 fw-bold"> More Details </th> <br>
+                <tr > ID        <td class="ps-2"> {{ data[i].id }} </td>           </tr>
+                <tr > Name      <td class="ps-2"> {{ data[i].name }} </td>         </tr>
+                <tr > Username  <td class="ps-2"> {{ data[i].username }} </td>     </tr>
+                <tr > Email     <td class="ps-2"> {{ data[i].email }} </td>        </tr>
+                <tr > Address   <td class="ps-2"> {{ data[i].address.street }},
+                      {{ data[i].address.suite }}, {{ data[i].address.city }},
+                      {{ data[i].address.zipcode }}  </td>                         </tr>
+                <tr > Phone     <td class="ps-2"> {{ data[i].phone }}</td>         </tr>
+                <tr > Website   <td class="ps-2"> {{ data[i].website }} </td>      </tr>
+                <tr > Company Name  <td class="ps-2"> {{ data[i].company.name }} </td> </tr>
+                <tr > Company Catch Phrase  <td class="ps-2"> {{ data[i].company.catchPhrase }}  </td> </tr>
+                <tr > Company BS  <td class="ps-2"> {{ data[i].company.bs }}  </td> </tr>
+
+              <br><br><br>
+            </div>
+        </div>
+    </div>
   </div>
 
-
-
-  <div class="m-3"> Total records: {{data.length}}</div>
-  <br>
   <p class="text-center"><a routerLink="">Sign out</a></p>
