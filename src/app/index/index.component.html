@@ -1,20 +1,21 @@
 <title> Customer Details </title>
-<header> <h2>Customer List</h2> </header>
+<header class="form-control"> <h1 class="fw-bold">Customer List</h1> </header>
 
 <!-- to use local api uncomment: -->
-<section class="main">
+<section>
   <div class="twrapper">
     <table cellpadding="pixels" cellspacing="pixels">
       <thead>
-        <tr>
+        <tr class="h5">
+          <th></th>
           <th> Company Name </th>
           <th> Phone </th>
           <th> Location </th>
           <th> Contact Name </th>
           <th> Website </th>
           <!-- <th> Customer Since </th> -->
-          <th> Edit </th>
-          <th> Detail</th>
+          <th> Details</th>
+          <br><br>
         </tr>
       </thead>
 
@@ -30,16 +31,36 @@
 
   <!-- online fake api -->
       <div *ngIf="!data.length"> {{getDataFromAPI()}} </div>
-        <tbody class="body" *ngFor="let d of data">
-          <tr class="data">
-            <td style="padding-right: 25px;"> {{ d.company.name }} </td>
-            <td style="padding-right: 20px;"> {{ d.phone }} </td>
-            <td style="padding-right: 25px;"> {{ d.address.street }} {{d.address.suite}} {{d.address.city}}</td>
-            <td style="padding-right: 20px;"> {{ d.name }} </td>
-            <td style="padding-right: 20px;"> {{ d.website }} </td>
+        <tbody class="body" *ngFor="let d of data; let i = index">
+          <tr>
+            <ol class="fw-bold"> {{ i+1 }} </ol>
+            <td class="ps-2"> {{ d.company.name }} </td>
+            <td class="ps-2"> {{ d.phone }} </td>
+            <td class="ps-2"> {{ d.address.street }} {{d.address.suite}} {{d.address.city}}</td>
+            <td class="ps-2"> {{ d.name }} </td>
+            <td class="ps-2"> {{ d.website }} </td>
+            <td class="ps-2">
+              <button id="{{i}}" (onclick)="showDetails(i)" >
+                <img src="../assets/info.png" alt="More Details" height ="35" width="45"/>
+              </button>
+            </td>
           </tr>
         </tbody>
+        <br> <br>
       </table>
     </div>
   </section>
-<p><a routerLink="">Sign out</a></p>
+
+  <!-- if user clicked i button, set to true, display info -->
+  <!-- when user clicks hide, set to false & hide info -->
+  <div *ngFor="let d of data; let i = index">
+    <!-- <div *ngIf = "showDetails"> {{d.name}} </div> -->
+
+    <td class="ps-2"> hi {{ data[i].name }} </td>
+  </div>
+
+
+
+  <div class="m-3"> Total records: {{data.length}}</div>
+  <br>
+  <p class="text-center"><a routerLink="">Sign out</a></p>

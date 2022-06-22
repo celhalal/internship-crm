@@ -19,7 +19,7 @@ div.input {
 
 div.input label {
 	position:relative;
-	top: -25px;
+	top: -15px;
 	transform: translateY(-50%);
 	left: 25px;
 	background: white;

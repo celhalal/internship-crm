@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FooterComponent } from './footer/footer.component';
-import { DetailComponent } from './detail/detail.component';
 import { IndexComponent } from './index/index.component';
 import { ErrorComponent } from './error/error.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -28,9 +27,6 @@ const appRoutes: Routes = [
   },
   //http://localhost:4200/detail to access
   {
-    path: 'detail',
-    component: DetailComponent
-  }, {
     path: 'index',
     component: IndexComponent
   }
@@ -42,7 +38,6 @@ const appRoutes: Routes = [
     HeaderComponent,
     LoginFormComponent,
     FooterComponent,
-    DetailComponent,
     IndexComponent,
     ErrorComponent
   ],
