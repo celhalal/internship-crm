@@ -11,9 +11,11 @@ import { JSONPlaceholderService } from '../../app/services/jsonplaceholder.servi
 export class IndexComponent implements OnInit {
   indices: Index[] = INDEX;
   data: Array<any>;
+  clicked: boolean = false;
 
   constructor(private JSONPlaceholder:JSONPlaceholderService) { 
     this.data = new Array<any>();
+    this.clicked = false;
   }
 
   ngOnInit(): void {
@@ -27,5 +29,8 @@ export class IndexComponent implements OnInit {
     this.JSONPlaceholder.getData().subscribe((data)=>{
       this.data = data;
     })
+  }
+  showDetails(i:number){
+    console.log(i);
   }
 }
