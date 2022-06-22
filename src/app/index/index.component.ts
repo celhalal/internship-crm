@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Index } from '../Index'
 import { INDEX } from '../mock-index';
+import { NgClass } from '@angular/common';
 import { JSONPlaceholderService } from '../../app/services/jsonplaceholder.service'
 
 @Component({
@@ -11,11 +12,11 @@ import { JSONPlaceholderService } from '../../app/services/jsonplaceholder.servi
 export class IndexComponent implements OnInit {
   indices: Index[] = INDEX;
   data: Array<any>;
-  clicked: boolean = false;
+  show = false;
+
 
   constructor(private JSONPlaceholder:JSONPlaceholderService) { 
     this.data = new Array<any>();
-    this.clicked = false;
   }
 
   ngOnInit(): void {
@@ -30,7 +31,9 @@ export class IndexComponent implements OnInit {
       this.data = data;
     })
   }
-  showDetails(i:number){
-    console.log(i);
+
+  showDetails(data:any){
+    console.log(data);
+    return data.show = !data.show;
   }
 }

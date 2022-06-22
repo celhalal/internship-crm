@@ -1,0 +1,12 @@
+div.wrapper{
+    padding-left: 30px;
+}
+
+tr.h6{
+    font-weight: bold;
+}
+
+tr#details td{
+    font-weight: normal;
+}
+
