@@ -51,16 +51,14 @@
   </section>
   <div class="h5 m-3"> Total records: {{data.length}}</div> <br>
 
-    <!-- if user clicked i button, set to true, display info -->
-    <!-- when user clicks hide, set to false & hide info -->
-    <!-- {{ data[i].name }} -->
+    <!-- if user clicked (toggle) i button, set to true, display info -->
 
     <div *ngIf="data.length">
       <div *ngFor="let d of data;  let i = index">
         <div *ngIf="data[i].show">
             <tr class="h6" id="details">
               <div class="wrapper">
-                <th class="h5 fw-bold"> More Details </th> <br>
+                <th class="h5 fw-bold"> More Details About {{ data[i].company.name }} </th> <br>
                 <tr > ID        <td class="ps-2"> {{ data[i].id }} </td>           </tr>
                 <tr > Name      <td class="ps-2"> {{ data[i].name }} </td>         </tr>
                 <tr > Username  <td class="ps-2"> {{ data[i].username }} </td>     </tr>

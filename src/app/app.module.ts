@@ -39,7 +39,7 @@ const appRoutes: Routes = [
     LoginFormComponent,
     FooterComponent,
     IndexComponent,
-    ErrorComponent
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

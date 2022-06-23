@@ -1,9 +1,7 @@
-<app-header></app-header>
 <title> Infor Login </title>
 <div class="logo">
   <img id="logo" src="../assets/logo.png" alt="Infor Logo">
 </div>
-
 <form>
 	<div class="input">
 		<label>Username</label>
@@ -11,9 +9,7 @@
 			required
 			#addUsername
 			type="email"
-			(input)="usernameInput(addUsername.value)"
-			[value]="username"
-			ng-model="username" >
+			(input)="usernameInput(addUsername.value)">
 	</div>
 	<div class="input">
 		<label>Password</label>
@@ -21,18 +17,15 @@
 			required
 			#addPassword
 			type="password"
-			(input)="passwordInput(addPassword.value)"
-			[value]="password"
-			ng-model="password">
+			(input)="passwordInput(addPassword.value)">
 	</div>
-	<form name="myForm">
-		<div class="input button">
-			<button id="button" (click)="submit()" type="button">Login</button>
-		</div>
-		<p *ngIf="!username" class="error-msg"> {{ errorMessage }} </p>
-		<p *ngIf="!password" class="error-msg"> {{ errorMessage }} </p>
-	</form>
-	<div class="newPass">
-        <a id="forgot-password" href>Forgot Password?</a>
-    </div>
+	<div class="button" (click)="submit()">
+		<input class="button" type="button" value="Login">
+	</div>
 </form>
+<p *ngIf="!username" class="error-msg"> {{ errorMessage }} </p>
+<p *ngIf="!password" class="error-msg"> {{ errorMessage }} </p>
+<div class="newPass">
+	<a id="forgot-password" href>Forgot Password?</a>
+</div>
+<app-footer></app-footer>
