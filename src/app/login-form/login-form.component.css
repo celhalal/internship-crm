@@ -33,7 +33,8 @@ div.input input {
 	margin-left: -65px;
 }
 
-div.button button{
+div.button input{
+	margin-top: 20px;
 	width: 115px;
 	font-size: 22px;
 }

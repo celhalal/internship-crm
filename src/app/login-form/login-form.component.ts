@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { Login } from '../Login';
 import { Injectable } from '@angular/core';
-import { JSONPlaceholderService } from '../../app/services/jsonplaceholder.service'
+import { HeaderComponent } from 'src/app/header/header.component';
+import { LOGIN } from '../mock-logins';
 
 @Component({
   selector: 'app-login-form',
@@ -15,17 +16,13 @@ import { JSONPlaceholderService } from '../../app/services/jsonplaceholder.servi
 })
 
 export class LoginFormComponent implements OnInit {
-  
-  constructor(private router:Router) {
-  }
-
-  ngOnInit(): void {}
-
-
   username = '';
   password = '';
   errorMessage= '';
-  users: Login[] | undefined;
+  
+  constructor(private router:Router) {}
+
+  ngOnInit(): void {}
 
   usernameInput(username: string){
     this.username = username;
@@ -34,6 +31,7 @@ export class LoginFormComponent implements OnInit {
   passwordInput(password:string){
     this.password = password;
   }
+
 
   // inserts input of name into members array when 'Add' button is clicked
   submit(){
@@ -48,17 +46,16 @@ export class LoginFormComponent implements OnInit {
       return;
     }
 
-    this.errorMessage= '';
-    this.username = '';
-    this.password = '';
+    
+    LOGIN.forEach((el) => {
+      // if username & password correct -> index page html
+      if(this.username === el.username && this.password === el.password){
+        this.router.navigate(['/index']);
+        throw stop;
+      }})
+    // if incorrect -> alert & direct to 404 page
+    this.router.navigate(['/error'])
+    console.log('incorrect password')
 
-    // once signed it -> index page html
-    this.router.navigate(['/index'])
-
-    // goes to 404 html page
-    // this.router.navigate(['/error'])
-
-    // this.getDataFromApi();
   }
-
 }
