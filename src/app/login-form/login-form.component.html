@@ -26,7 +26,10 @@
 </form>
 <p *ngIf="!username" class="error-msg"> {{ errorMessage }} </p>
 <p *ngIf="!password" class="error-msg"> {{ errorMessage }} </p>
-<div class="newPass">
-	<a id="forgot-password" href>Forgot Password?</a>
-</div>
+<div class="forgotPass">
+	<a (click)="forgotPass($event)" href>Forgot Password?</a>
+</div> 
+<div class="newAccount">
+	<a (click)="newAccount($event)" href>Don't have an account? Sign up here!</a>
+</div> <br><br>
 <app-footer></app-footer>

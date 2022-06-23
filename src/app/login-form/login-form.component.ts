@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
-import { Login } from '../Login';
 import { Injectable } from '@angular/core';
-import { HeaderComponent } from 'src/app/header/header.component';
 import { LOGIN } from '../mock-logins';
 
 @Component({
@@ -47,6 +45,7 @@ export class LoginFormComponent implements OnInit {
     }
 
     LOGIN.forEach((el) => {
+      console.log(el.username, el.password)
       // if username & password correct -> index page html
       if(this.username === el.username && this.password === el.password){
         this.router.navigate(['/index']);
@@ -55,6 +54,15 @@ export class LoginFormComponent implements OnInit {
     // if incorrect -> alert & direct to 404 page
     this.router.navigate(['/error'])
     console.log('incorrect password')
+  }
 
+  forgotPass(event: { preventDefault: () => void; }){
+    event.preventDefault();
+    this.router.navigate(['/new-password'])
+  }
+
+  newAccount(event: { preventDefault: () => void; }){
+    event.preventDefault();
+    this.router.navigate(['/register'])
   }
 }
