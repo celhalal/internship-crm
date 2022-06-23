@@ -46,7 +46,6 @@ export class LoginFormComponent implements OnInit {
       return;
     }
 
-    
     LOGIN.forEach((el) => {
       // if username & password correct -> index page html
       if(this.username === el.username && this.password === el.password){
