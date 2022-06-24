@@ -38,6 +38,8 @@ export class RegisterComponent implements OnInit {
 
     LOGIN.push({username: this.newUser, password:this.newPass});
     alert('Registration successfull')
+    this.newUser = '';
+    this.newPass = '';
     this.router.navigate([''])
   }
 }

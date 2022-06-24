@@ -42,6 +42,8 @@ export class NewPasswordComponent implements OnInit {
       if(this.newUser === el.username){
         LOGIN.push({username: this.newUser, password:this.newPass});
         alert('Password Updated! Please redirect to the Home Page');
+        this.newUser = ''
+        this.newPass = '';
         throw stop;
       }})
     // if username incorrect -> alert incorrect username -> make new account or go home
