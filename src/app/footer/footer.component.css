@@ -1,8 +1,8 @@
-p {
-    position: absolute;
-    width: 100%;
-    line-height: 40px;
-    font-size: 1em;
-    text-align: center;
-    bottom:0;
-}
+footer {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+  }
+  p.copyright {
+    margin-top: 50px;
+  }

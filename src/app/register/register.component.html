@@ -1,33 +1,48 @@
 <h1>Infor Customer Registration</h1>
 <title> Infor Registration </title>
-<div class="logo">
-  <img id="logo" src="../assets/logo.png" alt="Infor Logo">
+<div class="body">
+	<div class="logo">
+	<img id="logo" src="../assets/logo.png" alt="Infor Logo">
+	</div>
+	<form>
+		<div class="input" style="margin-left: 30px;">
+			<div class="input-container">
+				<img class="email" src="mail.png" style="margin-left: -5px;"/>
+				<label>Email</label>
+				<input placeholder="Optional">
+			  </div>
+		</div>
+		<div class="input">
+			<div class="input-container">
+				<img class="user" src="user.png"/>
+				<label>Username</label>
+				<input
+				required	
+				#newUsername
+				type= "email"
+				name = "newUser"
+				(input)="usernameInput(newUsername.value)"
+				[(ngModel)]="newUser">
+			  </div>
+		</div>
+		<div class="input">
+			<div class="input-container">
+				<img class="password" src="padlock.png"/>
+				<label>Password</label>
+				<input
+				required
+				#newPassword
+				name = "newPass"
+				type="password"
+				(input)="passwordInput(newPassword.value)"
+				[(ngModel)]="newPass">
+			</div>
+		</div>
+		<form class="button" (click)="register()">
+			<input class="btn btn-light-primary w-100" type="submit" value="Register" />
+		</form>
+	</form>
+	<p class="home text-center"><a routerLink="">Home Page</a></p>
+	<br>
 </div>
-<form>
-	<div class="input">
-		<label>Username</label>
-		<input
-			required	
-			#newUsername
-			type= "email"
-            name = "newUser"
-			(input)="usernameInput(newUsername.value)"
-            [(ngModel)]="newUser">
-	</div>
-	<div class="input">
-		<label>Password</label>
-		<input
-			required
-			#newPassword
-            name = "newPass"
-			type="password"
-			(input)="passwordInput(newPassword.value)"
-            [(ngModel)]="newPass">
-	</div>
-	<form class="button" (click)="register()">
-		<input class="button" type="button" value="Register">
-    </form>
-</form>
-<p class="text-center"><a routerLink="">Home Page</a></p>
-
 <app-footer></app-footer>

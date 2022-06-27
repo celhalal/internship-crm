@@ -1,35 +1,46 @@
 <app-header></app-header>
 <title> Infor Login </title>
-<div class="logo">
-  <img id="logo" src="../assets/logo.png" alt="Infor Logo">
+
+<div class="body">
+	<div class="logo">
+	<img id="logo" src="../assets/logo.png" alt="Infor Logo">
+	</div>
+	<form>
+		<div class="input">
+			<div class="input-container">
+				<img class="user" src="user.png"/>
+				<label>Username</label>
+				<input
+					required
+					#addUsername
+					type="email"
+					(input)="usernameInput(addUsername.value)">
+			</div>
+		</div>
+		<div class="input">
+			<div class="input-container">
+				<img class="password" src="padlock.png"/>
+				<label>Password</label>
+				<input
+				required
+				#addPassword
+				type="password"
+				(input)="passwordInput(addPassword.value)">
+			</div>
+		</div>
+		<form class="button" (click)="submit()">
+			<input class="btn btn-light-primary w-100" type="submit" value="Login" />
+		</form>
+	</form>
+	<p *ngIf="!username" class="error-msg"> {{ errorMessage }} </p>
+	<p *ngIf="!password" class="error-msg"> {{ errorMessage }} </p>
+	<div class="extras">
+		<div class="forgotPass">
+			<a (click)="forgotPass($event)" href>Forgot Password?</a>
+		</div> <br>
+		<div class="newAccount"> New User?
+			<a (click)="newAccount($event)" href>Sign up</a>
+		</div> <br><br>
+	</div>
 </div>
-<form>
-	<div class="input">
-		<label>Username</label>
-		<input
-			required
-			#addUsername
-			type="email"
-			(input)="usernameInput(addUsername.value)">
-	</div>
-	<div class="input">
-		<label>Password</label>
-		<input
-			required
-			#addPassword
-			type="password"
-			(input)="passwordInput(addPassword.value)">
-	</div>
-	<div class="button" (click)="submit()">
-		<input class="button" type="button" value="Login">
-	</div>
-</form>
-<p *ngIf="!username" class="error-msg"> {{ errorMessage }} </p>
-<p *ngIf="!password" class="error-msg"> {{ errorMessage }} </p>
-<div class="forgotPass">
-	<a (click)="forgotPass($event)" href>Forgot Password?</a>
-</div> 
-<div class="newAccount">
-	<a (click)="newAccount($event)" href>Don't have an account? Sign up here!</a>
-</div> <br><br>
 <app-footer></app-footer>

@@ -41,9 +41,10 @@ export class NewPasswordComponent implements OnInit {
       console.log(this.newUser, el.username)
       if(this.newUser === el.username){
         LOGIN.push({username: this.newUser, password:this.newPass});
-        alert('Password Updated! Please redirect to the Home Page');
+        alert('Password Updated! Redirecting to Home Page');
         this.newUser = ''
         this.newPass = '';
+        this.router.navigate([''])
         throw stop;
       }})
     // if username incorrect -> alert incorrect username -> make new account or go home

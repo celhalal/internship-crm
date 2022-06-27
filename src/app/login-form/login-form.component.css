@@ -1,6 +1,6 @@
 #logo{
     display: block;
-    padding-top: 1.25em;
+    padding-top: 2em;
     margin-left: auto;
     margin-right: auto;
     width: 200px;
@@ -14,7 +14,7 @@
 
 div.input {
 	margin-top: 21px;
-	color:black;
+	color:rgb(0, 0, 0);
 }
 
 div.input label {
@@ -24,28 +24,18 @@ div.input label {
 	left: 25px;
 	background: white;
 	padding: 5px 2px;
+	font-size: 16px;
 }
 
-div.input input {
-	padding: 15px 30px;
-	font-size: 20px;
-	outline: 0;
-	margin-left: -65px;
+
+.user{
+	background-image: url('../../assets/user.png');
 }
 
-div.button input{
-	margin-top: 20px;
-	width: 115px;
-	font-size: 22px;
+.password {
+	background-image: url('../../assets/padlock.png');
 }
 
-div.newAccount{
-    margin-top: 21px;
-}
-
-.error-msg {
-	margin-top: 23px;
-	font-weight:bolder;
-	font-size: 20px;
-    color: rgb(202, 7, 7);
+.forgotPass{
+	margin-top: 5px;
 }

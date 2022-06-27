@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Index } from '../Index'
 import { INDEX } from '../mock-index';
 import { JSONPlaceholderService } from '../../app/services/jsonplaceholder.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -14,7 +15,7 @@ export class IndexComponent implements OnInit {
   show = false;
 
 
-  constructor(private JSONPlaceholder:JSONPlaceholderService) { 
+  constructor(private router:Router, private JSONPlaceholder:JSONPlaceholderService) { 
     this.data = new Array<any>();
   }
 
@@ -34,5 +35,9 @@ export class IndexComponent implements OnInit {
   showDetails(data:any){
     console.log(data);
     return data.show = !data.show;
+  }
+
+  signOut(){
+    this.router.navigate([''])
   }
 }
