@@ -3,9 +3,9 @@
   <h1 class="fw-bold"> Customer List </h1>
 </header>
 
-<div >
-  <table class="table table-striped">
-    <thead class="table-light">
+<div class="table">
+  <table class="table">
+    <thead class="table-primary">
       <tr>
         <th scope="col"> ID </th>
         <th scope="col"> Company Name </th>
@@ -13,7 +13,7 @@
         <th scope="col"> Location </th>
         <th scope="col"> Contact Name </th>
         <th scope="col"> Website </th>
-        <th scope="col"> Details</th>
+        <th scope="col"> Action</th>
       </tr>
     </thead>
 
@@ -31,56 +31,56 @@
 
     <!-- backend api online -->
     <div *ngIf="!data.length"> {{getDataFromAPI()}} </div>
-    <tbody>
-      <tr class="body" *ngFor="let d of data; let i = index">
-        <th scope="row"> {{i+1}}</th>
-        <td> {{ d.company.name }} </td>
-        <td> {{ d.phone }} </td>
-        <td> {{ d.address.street }} {{d.address.suite}} {{d.address.city}}</td>
-        <td> {{ d.name }} </td>
-        <td> {{ d.website }} </td>
-        <td>
-          <div id="{{i}}" [(ngModel)]="data[i]" ngDefaultControl (click)="showDetails(data[i])">
-            <img src="../assets/info.png" alt="More Details" type="button" height ="35" width="45"/>
-          </div>
-        </td>
-      </tr>
+    
+    <tbody style="border-bottom: 1em solid black;">
+      <ng-container *ngFor="let d of data; let i = index">
+        <tr (click)="d.expanded = !d.expanded">
+          <th scope="row"> {{i+1}}</th>
+          <td> {{ d.company.name }} </td>
+          <td> {{ d.phone }} </td>
+          <td> {{ d.address.street }} {{d.address.suite}} {{d.address.city}}</td>
+          <td> {{ d.name }} </td>
+          <td> {{ d.website }} </td>
+          <td>
+            <div id="{{i}}">
+              <img src="../assets/info.png" alt="More Details" type="button" height ="35" width="45"/>
+            </div>
+          </td>
+        </tr>
+        
+      <!--  if user clicked (toggle) i button, set to true, display info -->
+      <ng-container *ngIf="d.expanded">
+        <td></td>
+          <td > <span>Username: </span> {{ data[i].username }} </td>
+          <td > <span>Email: </span> {{ data[i].email }}</td>
+          <td > <span>Location: </span> {{ data[i].address.street }},
+                {{ data[i].address.suite }}, {{ data[i].address.city }},
+                {{ data[i].address.zipcode }} </td>
+          <td > <span>Company's Catch Phrase: </span> {{ data[i].company.catchPhrase }}  </td>
+          <td > <span>Company's BS: </span> {{ data[i].company.bs }}  </td>
+          <td></td>
+        </ng-container>
+      </ng-container>
     </tbody>
   </table>
 </div>
+
+
+<div class="selection"><strong>
+  <p>Show </p><select [(ngModel)]="data.length">
+      <option *ngFor="let title of data; let i = index"> {{i+ 1}} </option>
+    </select> <p> entries   </p> 
+  </strong>
+</div>
+
+<input class="prev" type="button" value="Previous" style="float: right;">
+<input class="next" type="button" value="Next" style="float: right;">
+
+<div class="h5 m-3"> Records shown: {{data.length}}</div>
 <div class="h5 m-3"> Total records: {{data.length}}</div> <br>
-
-<!-- if user clicked (toggle) i button, set to true, display info -->
-
-<div class="details" *ngIf="data.length">
-  <div class="row">
-    <div class="col-sm w-100" *ngFor="let d of data;  let i = index">
-      <div *ngIf="data[i].show">
-        <div class="card align-items-flexs">
-          <div class="card-header fw-bold">More Details</div>
-          <div class="card-body">
-            <h5 class="card-title"> {{ data[i].company.name }} </h5>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"> <p>ID</p> {{ data[i].id }}</li>
-              <li class="list-group-item"> <p>Name</p> {{ data[i].name }} </li>
-              <li class="list-group-item"> <p>Username</p> {{ data[i].username }} </li>
-              <li class="list-group-item"> <p>Email</p> {{ data[i].email }}</li>
-              <li class="list-group-item"> <p>Location</p> {{ data[i].address.street }},
-                {{ data[i].address.suite }}, {{ data[i].address.city }},
-                {{ data[i].address.zipcode }} </li>
-              <li class="list-group-item"> <p>Phone # </p> {{ data[i].phone }} </li>
-              <li class="list-group-item"> <p>Website</p>  {{ data[i].website }} </li>
-              <li class="list-group-item"> <p>Company Name</p> {{ data[i].company.name }}  </li>
-              <li class="list-group-item"> <p>Company's Catch Phrase </p> {{ data[i].company.catchPhrase }}  </li>
-              <li class="list-group-item"> <p>Company's BS</p> {{ data[i].company.bs }}  </li>
-            </ul>
-          </div> 
-        </div> 
-      </div>  <br>
-    </div>  <br>
-  </div>  <br>
-</div>  <br>
 
 <form class="button" (click)="signOut()">
   <input class="btn btn-light-primary" type="submit" value="Sign Out" />
 </form>
+
+

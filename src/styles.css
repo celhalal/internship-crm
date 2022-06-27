@@ -83,3 +83,14 @@ div.input input {
 	margin-left: -65px;
 	text-indent: 25px;
 }
+
+
+div.input label {
+	position:relative;
+	top: -15px;
+	transform: translateY(-50%);
+	left: 25px;
+	background: white;
+	padding: 5px 2px;
+	font-size: 16px;
+}
