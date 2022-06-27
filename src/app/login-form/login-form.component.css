@@ -17,17 +17,6 @@ div.input {
 	color:rgb(0, 0, 0);
 }
 
-div.input label {
-	position:relative;
-	top: -15px;
-	transform: translateY(-50%);
-	left: 25px;
-	background: white;
-	padding: 5px 2px;
-	font-size: 16px;
-}
-
-
 .user{
 	background-image: url('../../assets/user.png');
 }

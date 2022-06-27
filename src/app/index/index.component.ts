@@ -13,10 +13,13 @@ export class IndexComponent implements OnInit {
   indices: Index[] = INDEX;
   data: Array<any>;
   show = false;
+  length?: number;
+  panelOpenState = false;
 
 
   constructor(private router:Router, private JSONPlaceholder:JSONPlaceholderService) { 
     this.data = new Array<any>();
+    length = this.data.length;
   }
 
   ngOnInit(): void {
@@ -30,11 +33,6 @@ export class IndexComponent implements OnInit {
     this.JSONPlaceholder.getData().subscribe((data)=>{
       this.data = data;
     })
-  }
-
-  showDetails(data:any){
-    console.log(data);
-    return data.show = !data.show;
   }
 
   signOut(){
