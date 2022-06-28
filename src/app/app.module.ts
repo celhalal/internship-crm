@@ -5,9 +5,8 @@ import { FormsModule } from '@angular/forms'; // <== add the imports!
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { RegisterComponent } from './register/register.component';
-import {MatExpansionModule} from '@angular/material/expansion';
 
+import { RegisterComponent } from './register/register.component';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -15,6 +14,13 @@ import { FooterComponent } from './footer/footer.component';
 import { IndexComponent } from './index/index.component';
 import { ErrorComponent } from './error/error.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button'; 
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
 
 const appRoutes: Routes = [
   // route to error page
@@ -53,15 +59,20 @@ const appRoutes: Routes = [
     IndexComponent,
     ErrorComponent,
     RegisterComponent,
-    NewPasswordComponent,
+    NewPasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule, 
-    MatExpansionModule,
-    RouterModule.forRoot(appRoutes, {enableTracing: true})
+    RouterModule.forRoot(appRoutes, {enableTracing: true}),
+    BrowserAnimationsModule, 
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
