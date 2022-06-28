@@ -23,7 +23,7 @@ tr {
   border-bottom: 1px solid rgb(220, 219, 219);
 }
 
-.prev, .next, .more, .hide {
+.more {
   width: 100px;
   border-radius: 7px;
   background-color: #cfe2ff;
@@ -34,20 +34,38 @@ tr {
   margin-bottom: 30px;
 }
 
-.prev:hover, .next:hover, .more:hover, .hide:hover {
+.buttonOptions{
+  margin-right: 60px;
+  float: right;
+  margin-bottom: 30px;
+}
+
+.prev, .next {
+  width: 40px;
+  border-radius: 7px;
+  background-color: #cfe2ff;
+  margin-right: 10px;
+  padding: 5px 5px;
+  border: 2px solid #9eb9d0;
+  float: right;
+  margin-bottom: 30px;
+}
+
+.prev:hover, .next:hover, .more:hover {
   transition: 0.2s ease-in;
   background-color: #a5bbdc;
 }
 
 tr:hover {
   background-color: rgb(236, 236, 236);
+  transition: 0.2s ease-in;
 }
 
 .dashboard{
-    margin-left: 35px;
-    margin-right: 20px;
-    height: 35px;
-    width: 40px;
+  margin-left: 35px;
+  margin-right: 20px;
+  height: 35px;
+  width: 40px;
 }
 
 mat-drawer.example-sidenav{
@@ -71,4 +89,8 @@ button.link {
 
 button.link:hover{
   font-size: large;
+}
+
+.pageNum{
+  display: inline-block;
 }
