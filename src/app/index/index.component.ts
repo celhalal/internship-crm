@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Index } from '../Index'
 import { INDEX } from '../mock-index';
 import { JSONPlaceholderService } from '../../app/services/jsonplaceholder.service'
@@ -13,9 +13,8 @@ import { Router } from '@angular/router';
 export class IndexComponent implements OnInit {
   indices: Index[] = INDEX;
   data: Array<any>;
-  show = false;
-  length?: number;
   currentVal =  10;
+  showFiller = false;
 
 
   constructor(private router:Router, private JSONPlaceholder:JSONPlaceholderService) { 
