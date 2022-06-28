@@ -15,7 +15,7 @@ export class IndexComponent implements OnInit {
   data: Array<any>;
   currentVal =  10;
   showFiller = false;
-
+  allRowsExpanded: boolean = false;
 
   constructor(private router:Router, private JSONPlaceholder:JSONPlaceholderService) { 
     this.data = new Array<any>();
@@ -37,6 +37,10 @@ export class IndexComponent implements OnInit {
     this.JSONPlaceholder.getData().subscribe((data)=>{
       this.data = data;
     })
+  }
+
+  public toggle() {
+    this.allRowsExpanded = !this.allRowsExpanded;
   }
 
   signOut(){

@@ -19,9 +19,8 @@
       <option *ngFor='let in of counter(10) ;let i = index'> {{i+ 1}} </option>
       </select> entries </strong>
     </div>
-    
-    <input class="more" type="button" value="Collapse All" style="float: right;">
-    <input class="hide" type="button" value="Hide All" style="float: right;">
+
+    <button class="more" (click)="toggle()">{{allRowsExpanded ? 'Collapse' : 'Expand'}}</button>
     
     <div class="table">
       <table class="table">
@@ -68,7 +67,7 @@
               </tr>
               
             <!-- if user clicked (toggle) i button, set to true, display info -->
-            <ng-container *ngIf="d.expanded">
+            <ng-container *ngIf="d.expanded || allRowsExpanded" >
               <td></td>
                 <td > <span>Username: </span> {{ data[i].username }} </td>
                 <td > <span>Email: </span> {{ data[i].email }}</td>
@@ -85,7 +84,14 @@
       </table>
     </div>
     <div class="h5 m-3"> Showing {{currentVal}} of {{data.length}} records </div>
-    <input class="next" type="button" value="Next" style="float: right;">
-    <input class="prev" type="button" value="Previous" style="float: right;">
+    
+    <div class="buttonOptions">
+      <img class="next" src="../assets/right.png" alt="next" type="button"/>
+      <img class="next" src="../assets/next.png" alt="next" type="button"/>
+      <div class="pageNum">Page</div>
+      <img class="prev" src="../assets/back.png" alt="next" type="button"/>
+      <img class="prev" src="../assets/left.png" alt="next" type="button"/>
+    </div>
+    
   </div>
 </mat-drawer-container>
