@@ -6,6 +6,7 @@
   display: inline-block;
   margin: 10px;
   font-size: large;
+  margin-left: 20px;
 }
 
 .button {
@@ -20,6 +21,8 @@
   border-color: #f1faff;
   background-color: #df0808;
   font-size: 20px;
+  margin-right: 38px;
+  margin-bottom: 10px;
 }
 
 .btn:hover {
@@ -41,17 +44,17 @@ tr {
   border-bottom: 1px solid rgb(220, 219, 219);
 }
 
-.prev, .next {
+.prev, .next, .more, .hide {
   width: 100px;
   border-radius: 7px;
   background-color: #cfe2ff;
-  margin-right: 20px;
+  margin-right: 40px;
   padding: 5px 5px;
   border-color: #b4d0e8;
   float: right;
 }
 
-.prev:hover, .next:hover {
+.prev:hover, .next:hover, .more:hover, .hide:hover {
   transition: 0.2s ease-in;
   background-color: #a5bbdc;
 }

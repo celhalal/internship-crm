@@ -9,12 +9,13 @@ import { Router } from '@angular/router';
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
+
 export class IndexComponent implements OnInit {
   indices: Index[] = INDEX;
   data: Array<any>;
   show = false;
   length?: number;
-  panelOpenState = false;
+  currentVal =  10;
 
 
   constructor(private router:Router, private JSONPlaceholder:JSONPlaceholderService) { 
@@ -23,6 +24,10 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  counter(i:number){
+    return new Array(i);
   }
 
   getIndex(): Index[]{
