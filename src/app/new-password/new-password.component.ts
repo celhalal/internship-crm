@@ -10,6 +10,7 @@ import { LOGIN } from '../mock-logins';
 export class NewPasswordComponent implements OnInit {
   newUser = '';
   newPass = '';
+  show: boolean = false;
 
   constructor(private router:Router) { }
 
@@ -35,7 +36,6 @@ export class NewPasswordComponent implements OnInit {
       return;
     }
 
-        
     LOGIN.forEach((el) => {
       // if username & password correct -> index page html
       console.log(this.newUser, el.username)
@@ -50,4 +50,9 @@ export class NewPasswordComponent implements OnInit {
     // if username incorrect -> alert incorrect username -> make new account or go home
       alert('Username Incorrect.');
   }
+
+  togglePass(){
+    this.show = !this.show;
+  }
+
 }

@@ -11,6 +11,7 @@ import { LOGIN } from '../mock-logins';
 export class RegisterComponent implements OnInit {
   newUser = '';
   newPass = '';
+  show: boolean = false;
 
   constructor(private router:Router) { }
 
@@ -42,4 +43,9 @@ export class RegisterComponent implements OnInit {
     this.newPass = '';
     this.router.navigate([''])
   }
+
+  togglePass(){
+    this.show = !this.show;
+  }
+
 }

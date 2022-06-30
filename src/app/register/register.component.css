@@ -1,13 +1,9 @@
-p {
-	margin-top: 100px;
-}
-
-#logo{
-    display: block;
-    padding-top: 1.25em;
-    margin-left: auto;
-    margin-right: auto;
-    width: 200px;
+h1 {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 40px;
+    border-bottom: 2px solid #eee;
+    font-weight: bold;
 }
 
 :host {
@@ -20,7 +16,6 @@ div.input {
 	margin-top: 21px;
 	color:black;
 }
-
 
 label.registration{
 	left: 0px;
@@ -48,9 +43,8 @@ div.newPass{
 	position: absolute;
 	background-image: url('../../assets/mail.png');
     width: 23px;
-	top: 21px;
+	top: 17px;
 	left: auto;
-	margin-left: 23px;
 }
 
 .password {

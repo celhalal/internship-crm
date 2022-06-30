@@ -13,17 +13,20 @@ import { Router } from '@angular/router';
 export class IndexComponent implements OnInit {
   indices: Index[] = INDEX;
   data: Array<any>;
-  currentVal =  10;
   showFiller = false;
   allRowsExpanded: boolean = false;
+  currentVal =  10;
 
-  constructor(private router:Router, private JSONPlaceholder:JSONPlaceholderService) { 
+  searchForm: any;
+
+
+  constructor(private router:Router, private JSONPlaceholder:JSONPlaceholderService,) { 
     this.data = new Array<any>();
     length = this.data.length;
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit() {}
+
 
   counter(i:number){
     return new Array(i);

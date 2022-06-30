@@ -1,5 +1,26 @@
+.header img {
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin: 8px 30px;
+}
+
+mat-drawer-container{
+  background-color: white;
+}
+
+h1 {
+  margin-top: 10px;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 40px;
+  font-weight: bold;
+  margin-right: 100px;
+}
+
 .table {
   padding: 15px 15px;
+  background-color: white;
 }
 
 .selection, p{
@@ -57,7 +78,7 @@ tr {
 }
 
 tr:hover {
-  background-color: rgb(236, 236, 236);
+  background-color: rgb(234, 233, 233);
   transition: 0.2s ease-in;
 }
 
@@ -66,12 +87,12 @@ tr:hover {
   margin-right: 20px;
   height: 35px;
   width: 40px;
+  display: inline;
 }
 
 mat-drawer.example-sidenav{
   width: 18%;
-  height: 95%;
-  box-shadow: 2px 0px #ecebeb;
+  height: 950%;
 }
 
 .image{
@@ -91,6 +112,85 @@ button.link:hover{
   font-size: large;
 }
 
-.pageNum{
-  display: inline-block;
+.mat-form-field {
+  float:right;
+  width: 10%;
+  margin-right: 15px;
+}
+
+.pageInfo{
+  margin-top: 17px;
+  float:right;
+  width: 20%;
+  color:rgb(127, 127, 127);
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 700px) { 
+  mat-drawer.example-sidenav{
+    width: 30%;
+    font-size: 15px;
+    margin-left: 15px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  mat-drawer.example-sidenav{
+    width: 100%;
+    font-size: 18px;
+    margin-left: 20px;
+  }
+}
+
+.container {
+  padding-top: 50px;
+  padding-bottom: 10px;
+  color: #405065;
+}
+
+.search-hero {
+  width: auto;
+  border-radius: 7px;
+  margin-right: 40px;
+  margin-top: 1px;
+  float: right;
+}
+
+.arrow {
+  border: solid rgb(174, 174, 174);
+  border-width: 0 3px 3px 0;
+  padding: 3px;
+  float: right;
+  margin-top: -13px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  margin-right: 35px;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  margin-right: 15px;
+}
+
+.arrow:hover{
+  border: solid rgb(146, 146, 146);
+  border-width: 0 3px 3px 0;
+}
+
+mat-icon.header{
+  float: right;
+  margin-top: -105px;
+  font-size: 26px;
+  margin-right: 90px;
+}
+
+svg{
+  float: right;
+  margin-top: -105px;
+  font-size: 30px;
+  margin-right: 50px;
 }

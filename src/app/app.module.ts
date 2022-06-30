@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'; // <== add the imports!
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <== add the imports!
 
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
@@ -20,34 +20,28 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button'; 
 import { MatIconModule } from '@angular/material/icon';
-import { MatDividerModule } from '@angular/material/divider';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatInputModule } from '@angular/material/input';
+import { MatBadgeModule } from '@angular/material/badge';
 
 const appRoutes: Routes = [
   // route to error page
   // keep first path since we are not calling login-form in app html
-  {
-    path: '',
-    component: LoginFormComponent,
-  },
+  { path: '', component: LoginFormComponent, },
   // http://localhost:4200/error to access
-  {
-    path: 'error',
-    component: ErrorComponent
-  },
+  { path: 'error', component: ErrorComponent },
   //http://localhost:4200/index to access
-  {
-    path: 'index',
-    component: IndexComponent
-  },
+  { path: 'index', component: IndexComponent },
   // http://localhost:4200/register to access
-  {
-    path: 'register',
-    component: RegisterComponent
-  },
-  {
-    path: 'new-password',
-    component: NewPasswordComponent
-  }
+  { path: 'register',
+    component: RegisterComponent },
+  { path: 'new-password', component: NewPasswordComponent }
 ]
 
 @NgModule({
@@ -59,7 +53,7 @@ const appRoutes: Routes = [
     IndexComponent,
     ErrorComponent,
     RegisterComponent,
-    NewPasswordComponent
+    NewPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +66,16 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
-    MatDividerModule
+    NgxPaginationModule,
+    MatChipsModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatTableModule,
+    MatExpansionModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

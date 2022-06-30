@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { Injectable } from '@angular/core';
 import { LOGIN } from '../mock-logins';
+import { FormGroup, FormControl, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-login-form',
@@ -17,6 +18,8 @@ export class LoginFormComponent implements OnInit {
   username = '';
   password = '';
   errorMessage= '';
+
+  show: boolean = false;
   
   constructor(private router:Router) {}
 
@@ -65,4 +68,9 @@ export class LoginFormComponent implements OnInit {
     event.preventDefault();
     this.router.navigate(['/register'])
   }
+
+  togglePass(){
+    this.show = !this.show;
+  }
+
 }
