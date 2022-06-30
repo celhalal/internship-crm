@@ -1,5 +1,5 @@
-<h1>Infor Customer Registration</h1>
 <title> Infor Registration </title>
+<h1>Infor Customer Registration</h1> <br><br>
 <div class="body">
 	<div class="logo">
 	<img id="logo" src="../assets/logo.png" alt="Infor Logo">
@@ -22,20 +22,24 @@
 				type= "email"
 				name = "newUser"
 				(input)="usernameInput(newUsername.value)"
-				[(ngModel)]="newUser">
+				[(ngModel)]="newUser"
+				placeholder="Required">
 			  </div>
 		</div>
 		<div class="input">
 			<div class="input-container">
 				<img class="password" src="padlock.png"/>
+				<img class="passVisibility" src="{{show ? '../../assets/show.png' : '../../assets/hide.png'}}"
+				type="button" (click)="togglePass()">
 				<label>Password</label>
 				<input
 				required
 				#newPassword
 				name = "newPass"
-				type="password"
+				[type]="show ? 'text' : 'password'"
 				(input)="passwordInput(newPassword.value)"
-				[(ngModel)]="newPass">
+				[(ngModel)]="newPass"
+				placeholder="Required">
 			</div>
 		</div>
 		<form class="button" (click)="register()">
@@ -45,4 +49,3 @@
 	<p class="home text-center"><a routerLink="">Home Page</a></p>
 	<br>
 </div>
-<app-footer></app-footer>

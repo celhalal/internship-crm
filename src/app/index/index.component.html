@@ -1,27 +1,51 @@
 <title> Customer Details </title>
-<h1> Customer List </h1> <br>
 
-<mat-drawer-container class="example-container" autosize>
+<div class="header" style="border-bottom: 1.5px solid rgb(229, 225, 225);">
+  <img src="../assets/logo.png" alt="logo"/>
+  <h1 >Customer List</h1>
+</div> <br> <br>
+
+<div class="icons">
+  <mat-icon class="header">notifications_none</mat-icon>
+  <svg class="calendar" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-calendar-date" viewBox="0 0 16 16">
+    <path d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z"/>
+    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+  </svg>
+</div>
+
+
+<mat-drawer-container class="example-container">
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <div class="sidebar">
-       <h2 style="margin-left: 15px;">MENU</h2>
-       <button class="link" type="button"> <img class="image" src="../assets/files.png"> Customer List</button>
+       <h2 style="margin: 15px;">
+        <mat-icon type="button" (click)="drawer.toggle()" style="margin: 10px;" matBadge="7" matBadgeColor="warn"> home </mat-icon>
+          MENU 
+        </h2>
+        <button class="link" type="button"> <img class="image" src="../assets/analysis.png"> Analytics</button>
+       <button class="link" type="button"> <img class="image" src="../assets/files.png"> CRM </button>
+       <button class="link" type="button"> <img class="image" src="../assets/online-shopping.png"> Ecommerce </button>
+       <button class="link" type="button"> <img class="image" src="../assets/blueprint.png"> Projects </button>
+       <div  style="padding: 5px; border-bottom: 1px solid rgb(193, 189, 189);"></div>
+
+       <button class="link" type="button" > <img class="image" src="../assets/user.png"> Profile</button>
        <button class="link" type="button" > <img class="image" src="../assets/info.png"> About</button>
        <button class="link" type="button" > <img class="image" src="../assets/question-mark.png"> Help</button>
        <button class="link" type="button" (click)="signOut()" > <img class="image" src="../assets/exit.png"> Sign Out</button>
-       
     </div>
   </mat-drawer>
 
-  <div class="example-sidenav-content">
-    <img class="dashboard" src="../assets/list.png" alt="Dashboard" type="button" (click)="drawer.toggle()"/>
-    <div class="selection"> <strong> Show <select [(ngModel)]="currentVal">
-      <option *ngFor='let in of counter(10) ;let i = index'> {{i+ 1}} </option>
-      </select> entries </strong>
-    </div>
-
+  <div class="example-sidenav-content"> <br>
+    <img class="dashboard" src="../assets/list.png" alt="Dashboard" type="button" (click)="drawer.toggle()"/>    
     <button class="more" (click)="toggle()">{{allRowsExpanded ? 'Collapse' : 'Expand'}}</button>
-    
+    <div class="search-hero">
+      <input
+        class="form-control"
+        type="text"
+        name="search"
+        autocomplete="off"
+        placeholder="Filter by Company">
+    </div>
+        
     <div class="table">
       <table class="table">
         <thead class="table-primary">
@@ -31,7 +55,6 @@
                <th scope="col"> Location </th>
                <th scope="col"> Contact Name </th>
                <th scope="col"> Website </th>
-               <th scope="col"> Action</th>
           </tr>
         </thead>
     
@@ -59,11 +82,6 @@
                 <td> {{ d.address.street }} {{d.address.suite}} {{d.address.city}}</td>
                 <td> {{ d.name }} </td>
                 <td> {{ d.website }} </td>
-                <td>
-                  <div id="{{i}}">
-                    <img src="../assets/info.png" alt="More Details" type="button" height ="25" width="25" style="margin-left: 10px;"/>
-                  </div>
-                </td>
               </tr>
               
             <!-- if user clicked (toggle) i button, set to true, display info -->
@@ -76,22 +94,32 @@
                       {{ data[i].address.zipcode }} </td>
                 <td > <span>Company's Catch Phrase: </span> {{ data[i].company.catchPhrase }}  </td>
                 <td > <span>Company's BS: </span> {{ data[i].company.bs }}  </td>
-                <td></td>
               </ng-container>
             </ng-container>
           </ng-container>
         </tbody>
       </table>
     </div>
-    <div class="h5 m-3"> Showing {{currentVal}} of {{data.length}} records </div>
-    
-    <div class="buttonOptions">
-      <img class="next" src="../assets/right.png" alt="next" type="button"/>
-      <img class="next" src="../assets/next.png" alt="next" type="button"/>
-      <div class="pageNum">Page</div>
-      <img class="prev" src="../assets/back.png" alt="next" type="button"/>
-      <img class="prev" src="../assets/left.png" alt="next" type="button"/>
-    </div>
-    
   </div>
 </mat-drawer-container>
+
+<!-- <mat-paginator
+      [length]="data.length"
+      [pageSize]=currentVal
+      [pageSizeOptions]="[5, 10, 25, 50]"> 
+</mat-paginator> <br> -->
+
+<div class="pageInfo">
+  <div> {{1}} - {{currentVal}} of {{data.length}}</div>
+  <p class="arrow right"></p>
+  <p class="arrow left"></p>
+</div>
+
+<div class="pageDetails">
+  <mat-form-field class="pager">
+    <mat-label>Items per page</mat-label>
+    <mat-select [(ngModel)]="currentVal">
+      <mat-option *ngFor='let in of counter(10); let i = index' [value]="i+1"> {{i+1}} </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
