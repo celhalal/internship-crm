@@ -13,20 +13,25 @@ import { Router } from '@angular/router';
 export class IndexComponent implements OnInit {
   indices: Index[] = INDEX;
   data: Array<any>;
-  showFiller = false;
+  searchText: any;
+
+  currentVal =  5;
+  p: number = 1;
+  total: number = 0;
+
+  status = 'Enable'; 
+  opened = true;
+  showFiller = true;
   allRowsExpanded: boolean = false;
-  currentVal =  10;
-
-  searchForm: any;
-
 
   constructor(private router:Router, private JSONPlaceholder:JSONPlaceholderService,) { 
     this.data = new Array<any>();
     length = this.data.length;
   }
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    this.getData();
+  }
 
   counter(i:number){
     return new Array(i);
@@ -36,15 +41,27 @@ export class IndexComponent implements OnInit {
     return INDEX;
   }
 
-  getDataFromAPI(){
-    this.JSONPlaceholder.getData().subscribe((data)=>{
+  getData(){
+    this.JSONPlaceholder.getData(this.p).subscribe((data)=>{
       this.data = data;
+      this.total = data.length;
     })
   }
+
+  pageChangeEvent(event: number){
+    this.p = event;
+    this.getData();
+}
 
   public toggle() {
     this.allRowsExpanded = !this.allRowsExpanded;
   }
+
+  toggleSidebar(){
+    this.opened = !this.opened;
+    this.status = this.opened ? 'Enable' : 'Disable';
+  }
+
 
   signOut(){
     this.router.navigate([''])
