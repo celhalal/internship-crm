@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class IndexComponent implements OnInit {
   indices: Index[] = INDEX;
   data: Array<any>;
-  searchText: any;
+  searchText = "";
 
   currentVal =  5;
   p: number = 1;
@@ -61,7 +61,6 @@ export class IndexComponent implements OnInit {
     this.opened = !this.opened;
     this.status = this.opened ? 'Enable' : 'Disable';
   }
-
 
   signOut(){
     this.router.navigate([''])
