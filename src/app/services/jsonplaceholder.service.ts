@@ -9,8 +9,8 @@ export class JSONPlaceholderService {
 
   constructor(private http:HttpClient) { }
 
-  getData():Observable<any>{
+  getData(page: number):Observable<any>{
     const url = 'https://jsonplaceholder.typicode.com/users';
-    return this.http.get<any>(url);
+    return this.http.get<any>(url + '?page=' + page);
   }
 }

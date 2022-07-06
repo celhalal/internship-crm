@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <== add the imports!
+import { SidebarModule } from 'ng-sidebar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
@@ -15,6 +16,7 @@ import { IndexComponent } from './index/index.component';
 import { ErrorComponent } from './error/error.component';
 import { NewPasswordComponent } from './new-password/new-password.component';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -29,6 +31,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
 import { MatBadgeModule } from '@angular/material/badge';
+
 
 const appRoutes: Routes = [
   // route to error page
@@ -75,7 +78,9 @@ const appRoutes: Routes = [
     MatExpansionModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    SidebarModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

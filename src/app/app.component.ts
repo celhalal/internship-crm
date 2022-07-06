@@ -18,8 +18,8 @@ export class AppComponent {
 
   data:Array<any> | undefined
 
-  getDataFromAPI(){
-    this.JSONPlaceholder.getData().subscribe((data)=>{
+  getDataFromAPI(page:number){
+    this.JSONPlaceholder.getData(page).subscribe((data)=>{
       console.log(data);
       this.data = data;
     })
