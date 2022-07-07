@@ -58,9 +58,8 @@ tr {
   background-color: #a5bbdc;
 }
 
-.breadcrumb{
-  margin-left: 30px;
-  width: auto;
+ol.breadcrumb{
+  padding: 12px;
 }
 
 img.dashboard{
