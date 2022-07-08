@@ -46,20 +46,24 @@
 
 .btn.btn-light-primary {
     color: #ffffff;
+	text-decoration: none;
     border-color: #f1faff;
     background-color: #4566fa;
     font-size: 20px;
 	margin-top: 10px;
+	border-radius: 8px;
 }
 
-.w-100 {
+.width {
     width: 300px!important;
 	height: 50px;
 }
 
 .btn:hover {
+	text-decoration: none;
 	transition: 0.2s ease-in;
-    background-color: #2b4fef;
+    background-color: #2347e9;
+	color: white !important;
 }
 
 .input-container {
